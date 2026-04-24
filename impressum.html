@@ -10,9 +10,9 @@
     <title>Impressum | RippleEdit</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700;900&family=Inter:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Unbounded:wght@700;900&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="css/styles.css" />
-    <script src="js/main.js" defer></script>
+    <script type="module" src="js/main.js"></script>
   </head>
   <body>
     <header class="site-header">
@@ -27,10 +27,16 @@
           />
         </a>
 
-        <a class="button button--primary button--nav" href="mailto:info@ripple-edit.com">
-          Get in touch
-          <span aria-hidden="true">→</span>
-        </a>
+        <div class="header-actions">
+          <span class="availability-pill availability-pill--header">
+            <span class="availability-dot availability-dot--pulse" aria-hidden="true"></span>
+            <span class="availability-pill-text">Work available</span>
+          </span>
+          <a class="button button--primary button--nav" href="mailto:info@ripple-edit.com">
+            Get in touch
+            <span aria-hidden="true">→</span>
+          </a>
+        </div>
       </div>
     </header>
 
@@ -58,10 +64,10 @@
       </section>
     </main>
 
-    <footer class="footer section">
+    <footer class="footer section reveal-on-scroll">
       <div class="container footer-inner">
         <div class="footer-copy">
-          <h2>Ready to work together?</h2>
+          <h2><span class="section-heading-line">Ready to work together?</span></h2>
           <a class="button button--primary" href="mailto:info@ripple-edit.com">
             Get in touch
             <span aria-hidden="true">→</span>

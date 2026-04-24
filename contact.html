@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Contact RippleEdit about your next video editing project."
+    />
+    <title>Contact | RippleEdit</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Unbounded:wght@700;900&display=swap" rel="stylesheet" />
+    <link rel="icon" type="image/png" href="assets/favicon.png" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/sections.css" />
+    <link rel="stylesheet" href="css/contact.css" />
+    <script type="module" src="js/main.js"></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav-shell">
+        <a class="brand" href="index.html" aria-label="RippleEdit home">
+          <img
+            class="brand-mark"
+            src="assets/logotype.png"
+            alt="RippleEdit logo"
+            width="auto"
+            height="36"
+          />
+        </a>
+
+        <div class="header-actions">
+          <span class="availability-pill availability-pill--header">
+            <span class="availability-dot availability-dot--pulse" aria-hidden="true"></span>
+            <span class="availability-pill-text">Work available</span>
+          </span>
+          <a class="button button--primary button--nav" href="index.html#work">
+            View work
+            <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main class="contact-page" id="top">
+      <section class="contact-shell section reveal-on-scroll" aria-labelledby="contact-title">
+        <div class="container contact-grid">
+          <div class="contact-intro">
+            <h1 class="contact-title" id="contact-title">Tell us what you’re making.</h1>
+            <p class="contact-lead">
+              Send the rough brief, raw footage context, or the content goal. We’ll take it from there and reply with the next step.
+            </p>
+
+            <div class="contact-notes" aria-label="What to include">
+              <p class="contact-notes-title">Helpful details</p>
+              <ul class="contact-list">
+                <li>What kind of content you’re editing</li>
+                <li>The deliverables you want</li>
+                <li>Your preferred timeline</li>
+                <li>Preferred editing style</li>
+                <li>Pacing and energy</li>
+                <li>Music direction</li>
+              </ul>
+            </div>
+
+            <p class="contact-fallback">
+              Prefer email? <a href="mailto:info@ripple-edit.com">info@ripple-edit.com</a>
+            </p>
+          </div>
+
+          <div class="contact-card">
+            <form
+              class="contact-form"
+              action="https://api.web3forms.com/submit"
+              method="post"
+              data-contact-form
+            >
+              <input type="hidden" name="access_key" value="83617841-944b-40cf-ba4a-b5f3425254eb" />
+              <input type="hidden" name="subject" value="New RippleEdit inquiry" />
+              <input type="hidden" name="from_name" value="RippleEdit Website" />
+
+              <label class="contact-honeypot" aria-hidden="true">
+                <span>Leave this field empty</span>
+                <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" />
+              </label>
+
+              <label class="contact-field">
+                <span>Name</span>
+                <input type="text" name="name" autocomplete="name" required />
+              </label>
+
+              <label class="contact-field">
+                <span>Email</span>
+                <input type="email" name="email" autocomplete="email" required />
+              </label>
+
+              <label class="contact-field">
+                <span>Project type</span>
+                <select name="project_type" required>
+                  <option value="" selected disabled>Select one</option>
+                  <option value="long_form">Long form</option>
+                  <option value="short_form">Short form</option>
+                  <option value="retainer">Ongoing retainer</option>
+                  <option value="other">Other</option>
+                </select>
+              </label>
+
+              <label class="contact-field">
+                <span>Tell us about the project</span>
+                <textarea name="message" rows="6" placeholder="What do you need edited?" required></textarea>
+              </label>
+
+              <button class="button button--primary contact-submit" type="submit">
+                Send inquiry
+                <span aria-hidden="true">→</span>
+              </button>
+
+              <p class="contact-status" data-contact-status role="status" aria-live="polite"></p>
+            </form>
+
+            <p class="contact-disclaimer">
+              Form submissions go securely through Web3Forms. You can also email us directly at info@ripple-edit.com.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer section reveal-on-scroll">
+      <div class="container footer-inner">
+        <div class="footer-copy">
+          <h2><span class="section-heading-line">Prefer email?</span></h2>
+          <a class="button button--primary" href="mailto:info@ripple-edit.com">
+            Email us
+            <span aria-hidden="true">→</span>
+          </a>
+        </div>
+        <p class="footer-note">© 2026 RippleEdit</p>
+        <nav class="footer-legal" aria-label="Legal">
+          <a href="impressum.html">Impressum</a>
+          <a href="datenschutz.html">Datenschutz</a>
+        </nav>
+      </div>
+    </footer>
+  </body>
+</html>
