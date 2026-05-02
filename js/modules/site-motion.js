@@ -115,13 +115,33 @@ export function initSiteMotion() {
     return Boolean(horizontalStrip && Math.abs(event.deltaX) > Math.abs(event.deltaY));
   };
 
+  const normalizeWheelDelta = (event) => {
+    let delta = event.deltaY;
+
+    if (event.deltaMode === 1) {
+      delta *= 16;
+    } else if (event.deltaMode === 2) {
+      delta *= window.innerHeight;
+    }
+
+    return delta;
+  };
+
+  const syncScrollFromNative = () => {
+    if (rafId === null) {
+      currentScroll = window.scrollY;
+      targetScroll = window.scrollY;
+    }
+  };
+
   const handleWheel = (event) => {
     if (shouldBypassWheel(event)) {
       return;
     }
 
     event.preventDefault();
-    const delta = event.deltaY + event.deltaX;
+    syncScrollFromNative();
+    const delta = normalizeWheelDelta(event);
     queueScroll(window.scrollY + delta * 1.55);
   };
 

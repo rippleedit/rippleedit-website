@@ -70,13 +70,7 @@ export function initClientWordsReveal() {
 
   let targetIndex = 0;
   let currentIndex = 0;
-  let activeIndex = 0;
   let running = false;
-  let settleUntil = 0;
-  let lastProgress = 0;
-  const settleDuration = 260;
-  const thresholdBuffer = 0.085;
-  const finalStepLead = 0.28;
 
   const render = () => {
     panels.forEach((panel, index) => {
@@ -100,11 +94,6 @@ export function initClientWordsReveal() {
       currentIndex = targetIndex;
     }
 
-    if (currentIndex === targetIndex) {
-      activeIndex = targetIndex;
-      settleUntil = performance.now() + settleDuration;
-    }
-
     render();
 
     if (currentIndex === targetIndex) {
@@ -126,39 +115,13 @@ export function initClientWordsReveal() {
 
   const updateTarget = () => {
     const progress = getProgress();
-    const now = performance.now();
+    const n = CLIENT_WORDS.length;
+    const newIndex = Math.min(Math.floor(progress * n), n - 1);
 
-    if (now < settleUntil) {
-      lastProgress = progress;
-      return;
+    if (newIndex !== targetIndex) {
+      targetIndex = newIndex;
+      startLoop();
     }
-
-    const direction = progress >= lastProgress ? 1 : -1;
-    lastProgress = progress;
-
-    if (direction > 0) {
-      const nextIndex = Math.min(activeIndex + 1, CLIENT_WORDS.length - 1);
-      const nextThreshold = CLIENT_WORDS.length <= 1
-        ? 1
-        : nextIndex === CLIENT_WORDS.length - 1
-          ? clamp(1 - finalStepLead, 0, 1)
-          : clamp((nextIndex / (CLIENT_WORDS.length - 1)) + thresholdBuffer, 0, 0.92);
-
-      targetIndex = progress >= nextThreshold ? nextIndex : activeIndex;
-    } else if (direction < 0) {
-      const prevIndex = Math.max(activeIndex - 1, 0);
-      const prevThreshold = CLIENT_WORDS.length <= 1
-        ? 0
-        : prevIndex === 0
-          ? 0
-          : clamp((prevIndex / (CLIENT_WORDS.length - 1)) - thresholdBuffer, 0, 0.88);
-
-      targetIndex = progress <= prevThreshold ? prevIndex : activeIndex;
-    } else {
-      targetIndex = activeIndex;
-    }
-
-    startLoop();
   };
 
   if (reduceMotion) {
@@ -195,9 +158,7 @@ export function initClientWordsReveal() {
 
   updatePinLength();
   currentIndex = 0;
-  activeIndex = 0;
   targetIndex = 0;
-  lastProgress = 0;
   render();
   updateTarget();
 }

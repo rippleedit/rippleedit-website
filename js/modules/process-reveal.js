@@ -37,17 +37,11 @@ export function initProcessReveal() {
       `${Math.round(Math.max((window.innerHeight || 900) * 1.7, (window.innerHeight || 900) * 1.1 + steps.length * 80))}px`
     );
 
-    const scrollable = Math.max(track.offsetHeight - stage.offsetHeight, 1);
-    const stepCenters = steps.map((step) => step.offsetTop + step.offsetHeight / 2);
-
-    stepThresholds = steps.map((step, index) => {
-      const currentCenter = stepCenters[index];
-      const start = index === 0 ? 0 : clamp(currentCenter / scrollable, 0, 1);
-      const nextCenter = stepCenters[index + 1] ?? scrollable;
-      const end = index === steps.length - 1 ? 1 : clamp(nextCenter / scrollable, start + 0.01, 1);
-
-      return { start, end };
-    });
+    const n = steps.length;
+    stepThresholds = steps.map((_, index) => ({
+      start: index / n,
+      end: (index + 1) / n,
+    }));
   };
 
   const computeTargetProgress = () => {

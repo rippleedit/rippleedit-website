@@ -22,6 +22,7 @@
 .process-pin-stage {
   position: sticky;
   top: 15vh;
+  background: var(--color-bg);
 }
 
 .process .section-heading {
@@ -60,7 +61,7 @@
 
 .process-progress-track {
   inset: 0;
-  background: var(--color-border);
+  background: rgba(255, 255, 255, 0.22);
 }
 
 .process-progress-fill {
@@ -240,6 +241,7 @@
 .client-words-pin-stage {
   position: sticky;
   top: 12vh;
+  background: var(--color-bg);
 }
 
 .client-words-shell {

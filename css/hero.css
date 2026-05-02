@@ -160,6 +160,15 @@ body.is-loaded .hero-title-line:last-child {
   transition-delay: 260ms;
 }
 
+body.is-loaded .hero-copy > .button {
+  transition: transform var(--transition-base), background-color var(--transition-base), color var(--transition-base);
+}
+
+body.is-loaded .hero-copy > .button:hover,
+body.is-loaded .hero-copy > .button:focus-visible {
+  transform: translateY(-3px);
+}
+
 body.is-loaded .hero-trust {
   opacity: 1;
   transform: none;
