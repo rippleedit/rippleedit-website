@@ -2,7 +2,6 @@ import { initSiteMotion } from "./modules/site-motion.js";
 import { initSectionReveal } from "./modules/scroll-reveal.js";
 import { initProcessReveal } from "./modules/process-reveal.js";
 import { initWorkGallery } from "./modules/work-gallery.js";
-import { initTrustCarousel } from "./modules/trust-marquee.js";
 import { initClientWordsReveal } from "./modules/client-words-reveal.js";
 import { initContactForm } from "./modules/contact-form.js";
 
@@ -15,7 +14,6 @@ document.addEventListener("DOMContentLoaded", () => {
   initSectionReveal();
   initProcessReveal();
   initWorkGallery();
-  initTrustCarousel();
   initClientWordsReveal();
   initContactForm();
 
