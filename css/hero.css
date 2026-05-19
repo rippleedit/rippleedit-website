@@ -186,7 +186,7 @@ body.is-loaded .hero-scroll-wrap {
 .hero-subtitle {
   margin: 0;
   color: rgba(255, 255, 255, 0.55);
-  font-size: clamp(1rem, 1.7vw, 1.45rem);
+  font-size: var(--font-size-body);
   line-height: 1.45;
   font-weight: var(--font-weight-normal);
   max-width: 46rem;
