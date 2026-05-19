@@ -2,17 +2,6 @@
   margin-bottom: var(--space-10);
 }
 
-.process-step-media {
-  margin-top: var(--space-4);
-}
-
-.process-gif {
-  width: 100%;
-  max-width: 420px;
-  border-radius: var(--radius-media);
-  display: block;
-}
-
 .section-heading h2 {
   margin: 0;
   font-size: clamp(2rem, 4vw, 3.5rem);
